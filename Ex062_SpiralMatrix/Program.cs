@@ -13,39 +13,60 @@ PrintMatrix(matrix);
 
 void FillSpiralMatrix4x4(int[,] table)
 {
-    int i = 0;
-    int j = 0;
+    int row = 0;
+    int col = 0;
     int counter = 1;
-    for (j = 0; j <= 3; j++)     // 1
+    // 1
+    while (col <= 3)     
     {
-        table[i, j] = counter;
+        table[row, col] = counter;
         counter++;
+        col++;
     }
-    for (i = 1; i <= 3; i++)     // 2
+    col--;
+    row++;
+    // 2
+    while (row <= 3)     
     {
-        table[i, 3] = counter;
+        table[row, col] = counter;
         counter++;
+        row++;
     }
-    for (j = 2; j >= 0; j--)     // 3
+    row--;
+    col--;
+    // 3
+    while (col >= 0)     
     {
-        table[3, j] = counter;
+        table[row, col] = counter;
         counter++;
+        col--;
     }
-    for (i = 2; i >= 1; i--)     // 4
+    col++;
+    row--;
+    // 4
+    while (row >= 1)     
     {
-        table[i, 0] = counter;
+        table[row, col] = counter;
         counter++;
+        row--;
     }
-    for (j = 1; j <= 2; j++)     // 5
+    row++;
+    col++;
+    // 5
+    while (col <= 2)     
     {
-        table[1, j] = counter;
+        table[row, col] = counter;
         counter++;
+        col++;
     }
-    
-    table[2, 2] = counter;       // 6
+    col--;
+    row++;
+    // 6
+    table[row, col] = counter;       
     counter++;
-    
-    table[2, 1] = counter;       // 7
+    col--;
+    // 7
+    table[row, col] = counter;       
 }
 
 void PrintMatrix(int[,] table)
